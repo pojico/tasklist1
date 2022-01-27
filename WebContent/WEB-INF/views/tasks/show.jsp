@@ -9,8 +9,8 @@
         <p>登録日時：<fmt:formatDate value="${task.created_at}"/>
         <p>登録日時：<fmt:formatDate value="${task.updated_at}"/>
 
-    <p><a href="${pageContext.request.contextPath}/update">編集する</a>
-    <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a>
+    <p><a href="${pageContext.request.contextPath}/edit?id=${task.id}">編集する</a></p>
+    <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
 
     </c:param>
 </c:import>
