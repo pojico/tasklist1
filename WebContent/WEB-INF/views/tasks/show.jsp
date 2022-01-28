@@ -3,14 +3,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
-        <h2>ID ${task.id} の詳細</h2>
+	    <c:choose>
+            <c:when test="${task != null }">
+		        <h2>ID ${task.id} の詳細</h2>
+		
+		        <p>タスク：<c:out value="${task.content}"/></p>
+		        <p>登録日時：<fmt:formatDate value="${task.created_at}"/>
+		        <p>登録日時：<fmt:formatDate value="${task.updated_at}"/>
+		
+			    <p><a href="${pageContext.request.contextPath}/edit?id=${task.id}">編集する</a></p>
+			    <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
+            </c:when>
+            <c:otherwise>
+                <h2>お探しのデータは見つかりませんでした。</h2>
+            </c:otherwise>
 
-        <p>タスク：<c:out value="${task.content}"/></p>
-        <p>登録日時：<fmt:formatDate value="${task.created_at}"/>
-        <p>登録日時：<fmt:formatDate value="${task.updated_at}"/>
-
-    <p><a href="${pageContext.request.contextPath}/edit?id=${task.id}">編集する</a></p>
-    <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
-
+	    </c:choose>
     </c:param>
 </c:import>
