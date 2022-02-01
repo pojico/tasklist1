@@ -3,21 +3,34 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
-	    <c:choose>
+        <c:choose>
             <c:when test="${task != null }">
-		        <h2>ID ${task.id} の詳細</h2>
-		
-		        <p>タスク：<c:out value="${task.content}"/></p>
-		        <p>登録日時：<fmt:formatDate value="${task.created_at}"/>
-		        <p>登録日時：<fmt:formatDate value="${task.updated_at}"/>
-		
-			    <p><a href="${pageContext.request.contextPath}/edit?id=${task.id}">編集する</a></p>
-			    <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
+                <h2>ID ${task.id} の詳細</h2>
+
+        <table class="table table-bordered">
+          <tbody>
+              <tr>
+                <th>タスク</th>
+                <td><c:out value="${task.content}"/></td>
+              </tr>
+              <tr>
+                <th>登録日時</th>
+                <td><fmt:formatDate value="${task.created_at}"/></td>
+              </tr>
+              <tr>
+                <th>登録日時</th>
+                <td><fmt:formatDate value="${task.updated_at}"/></td>
+              </tr>
+          </tbody>
+        </table>
+
+                <p><a href="${pageContext.request.contextPath}/edit?id=${task.id}">編集する</a></p>
+                <p><a href="${pageContext.request.contextPath}/index">一覧に戻る</a></p>
             </c:when>
             <c:otherwise>
                 <h2>お探しのデータは見つかりませんでした。</h2>
             </c:otherwise>
 
-	    </c:choose>
+        </c:choose>
     </c:param>
 </c:import>

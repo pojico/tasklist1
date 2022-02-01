@@ -2,11 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
-          <p><a href="${pageContext.request.contextPath}/new">新しいタスク</a></p>
 
-          <ul>
+          <ul class="list-group">
             <c:forEach var="task" items="${tasks}">
-                <li>
+                <li class="list-group-item">
                     <a href="${pageContext.request.contextPath}/show?id=${task.id}">
                     <c:out value = "${task.id}"/>
                     </a>
@@ -19,6 +18,7 @@
             <c:forEach var="i" begin="1" end="${((tasks_count - 1) / 15) + 1}" step="1">
               <c:choose>
                   <c:when test="${i == page}">
+
                       <c:out value="${i}"/>&nbsp;
                   </c:when>
                   <c:otherwise>

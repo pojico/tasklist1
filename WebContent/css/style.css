@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+#flush_error{
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    margin-bottom: 15px;
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
+
+.navbar {
+        border-bottom: 1px solid#e7e7e7;
+        margin-bottom: 20px;
+      }
+
+footer {
+        margin-top: 20px;
+        border-top: 1px solid#e7e7e7;
+        text-align: center;
+      }
+
+.copyright {
+        padding: 20px 0;
+        font-size: 12px;
+        color: #666;
+      }
